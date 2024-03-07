@@ -1,0 +1,79 @@
+﻿<Page x:Class="InitialProject.WPF.Views.GuideWindows.ReviewsInformationWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InitialProject.WPF.Views.GuideWindows"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="ReviewsInformationWindow">
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+
+
+
+        <Grid Background="#FFDCDB">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="69"/>
+                <RowDefinition Height="161"/>
+                <RowDefinition Height="494"/>
+
+
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Rectangle Grid.Row="1" ></Rectangle>
+                <Label Content="Ime:" HorizontalAlignment="Left" Style="{StaticResource BoldLabel}" Foreground="#E80575"  VerticalAlignment="Bottom" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.625,2.173" Margin="10,0,0,-108"/>
+                <TextBox Style="{StaticResource RoundTextBoxStyle}"  BorderBrush="#FF2791" Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=CurrentUser.Reservation.Guest.FirstName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Margin="89,0,0,-108"/>
+                <TextBox Style="{StaticResource RoundTextBoxStyle}" BorderBrush="#FF2791" Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=CurrentUser.Reservation.Guest.LastName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Margin="89,0,0,-178"/>
+                <DataGrid Style="{StaticResource DataGridStyle}" ItemsSource="{Binding Path=Reviews, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedReview, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
+                   AutoGenerateColumns="False" RowStyle="{StaticResource DataGridRow}" CellStyle="{StaticResource DataGridCell}"
+                  x:Name="ReviewsDataGrid" IsReadOnly="True" SelectionMode="Single" SelectionChanged="ReviewsDataGrid_SelectionChanged" Margin="1,283,-1,-549" >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn HeaderStyle="{StaticResource DataGridHeader}" Header="Naziv" Width="101"   Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource DataGridHeader}" Header="Interesantnost" Width="130" Binding="{Binding Interestingness}"></DataGridTextColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource DataGridHeader}" Header="Znanje" Width="55" Binding="{Binding Knowledge}"></DataGridTextColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource DataGridHeader}" Header="Jezik" Width="50" Binding="{Binding Language}"></DataGridTextColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource DataGridHeader}" Header="Komentar" Width="*" Binding="{Binding Comment}"></DataGridTextColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+
+
+
+
+            <StackPanel VerticalAlignment="Top" Margin="0,0,358,0" Grid.Row="1" Height="54">
+                <Button x:Name="IsValid" Style="{StaticResource RoundButtonStyle}" Command="{Binding IsValidCommand}" Height="52" RenderTransformOrigin="0.5,0.5" Width="56">
+                    <StackPanel>
+                        <Image Source="/Resources/Images/sign.png" Width="29" Height="29" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleY="0.449"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform Y="0.125"/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <TextBlock Text="Prijavi" HorizontalAlignment="Center" FontSize="8"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Label Content="Prezime:" Style="{StaticResource BoldLabel}" Foreground="#E80575" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" Margin="10,82,0,0" Grid.Row="2" Height="31" Width="73" RenderTransformOrigin="0.362,0.434"/>
+
+
+        </Grid>
+
+
+
+
+    </ScrollViewer>
+</Page>

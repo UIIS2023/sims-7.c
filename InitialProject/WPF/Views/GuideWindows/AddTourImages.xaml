@@ -1,0 +1,63 @@
+﻿<Window x:Class="InitialProject.WPF.Views.GuideWindows.AddTourImages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.GuideWindows"
+        mc:Ignorable="d"
+        d:DesignHeight="750" d:DesignWidth="430"
+        Title="Dodaj sliku za turu" SizeToContent ="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="169"/>
+                <ColumnDefinition Width="210*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="566.04"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Label Content="Url" HorizontalAlignment="Left" Margin="10,0,10,0" Grid.Row="0" VerticalAlignment="Center" FontSize="17" FontFamily="Candara"/>
+                <Label Content="Opis" HorizontalAlignment="Left" Margin="10,0,10,0" Grid.Row="1" VerticalAlignment="Center" FontSize="17" FontFamily="Candara"/>
+
+
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Margin="10,0,10,0"  Width="200" Height="30" HorizontalAlignment="Left" Text="{Binding Path=Url,Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"  ToolTip="This field is required!"/>
+                <TextBox Grid.Row="1" Margin="10,0,10,0"  Width="200" Height="30" HorizontalAlignment="Left" Text="{Binding Path=Description,Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"  ToolTip="This field is required!"/>
+
+            </Grid>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Center" Orientation="Horizontal" Height="60" Width="200">
+                <Button x:Name="SubmitButton" Content="Dodaj" Click="SubmitButton_Click"  Height="40" Width="90" />
+                <Button x:Name="CancelButton" Content="Zavrsi" Click="CancelButton_Click" Height="40" Width="90" Margin="10"/>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top" Orientation="Horizontal" Height="133" Width="420" Grid.ColumnSpan="2">
+                <DataGrid ItemsSource="{Binding AllImages, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" x:Name="AllImagesDataGrid" Width="410" Height="130">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Url" Width="*" Binding="{Binding Url}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

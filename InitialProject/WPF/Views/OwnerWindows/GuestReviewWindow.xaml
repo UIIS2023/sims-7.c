@@ -1,0 +1,57 @@
+﻿<Window x:Class="InitialProject.WPF.Views.OwnerWindows.GuestReviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.OwnerWindows"
+        mc:Ignorable="d"
+        Title="Oceni gosta" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding FinishCommand}" Key="S" Modifiers="Ctrl" />
+        <KeyBinding Command="{Binding CancelCommand}" Key="Esc"/>
+    </Window.InputBindings>
+    <Grid Background="{StaticResource OwnerRectangleFill}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="GuestLabel" Content="Gost" Height="30" HorizontalAlignment="Center" Style="{StaticResource DefaultLabelS}" Width="120" Grid.Row="1"/>
+        <Label x:Name="AccommodationLabel" Content="Smeštaj" Height="30" HorizontalAlignment="Center" Style="{StaticResource DefaultLabelS}" Width="120" Grid.Row="2"/>
+        <Label x:Name="CleanlinessLabel"  Content="Čistoća"  Height="30" HorizontalAlignment="Center" Style="{StaticResource DefaultLabelS}" Margin="0,10,0,10" Width="120" Grid.Row="3"/>
+        <Label Grid.Row="4" x:Name="BeahviourLabel" Content="Ponašanje" Height="30" HorizontalAlignment="Left" Margin="52,10,0,10" Width="120" Style="{StaticResource DefaultLabelS}"/>
+        <Label Grid.Row="5" x:Name="CommentLabel" Content="Komentar"  Height="30" HorizontalAlignment="Center" Margin="0,35,0,35" Width="120" Style="{StaticResource DefaultLabelS}"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Guest}" Style="{StaticResource DefaultLabelS}" Height="30" Margin="23,12,22,12"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding reservation.Accommodation.Name}" Style="{StaticResource DefaultLabelS}" Height="30" Margin="23,12,22,12"/>
+        <ComboBox x:Name="CleanlinessComboBox" ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedCleanliness}" 
+                     IsEditable="False" Height="23" Width="180"  ToolTip="This field is required!" Grid.Row="3" Grid.Column="1"/>
+
+        <ComboBox x:Name="BehaviourComboBox" ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedBehaviour}" Grid.Row="4"  Grid.Column="1"
+                     IsEditable="False" Height="23" Width="180"  ToolTip="This field is required!"/>
+        <TextBox x:Name="CommentTextBox" Text="{Binding Path=Comment, Mode=OneWayToSource,UpdateSourceTrigger=LostFocus}" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Height="60" Width="180" />
+
+        <Button x:Name="AddReviewButton" Grid.Column="1"  Grid.Row="5" Command="{Binding FinishCommand}"  Style="{StaticResource SubmitButton}" Height="60" Width="80" Margin="23,98,122,0" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Dodaj" HorizontalAlignment="Center"/>
+                <TextBlock Text="ENTER" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="CancelButton" Grid.Column="1" Grid.Row="5" Height="60" Width="80" Style="{StaticResource CancelButton}" Command="{Binding CancelCommand}" Margin="125,98,22,0" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Odustani" HorizontalAlignment="Center"/>
+                <TextBlock Text="ESC" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest1Windows.RenovationRecommendationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest1Windows"
+        mc:Ignorable="d"
+        Title="RenovationRecommendationWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="LightSkyBlue">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="PREPORUKA ZA RENOVIRANJE" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+
+
+        <Label Content="Šta bi trebalo renovirati?" HorizontalAlignment="Left" Margin="41,71,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="(slobodnim rečima opišite šta bi, po Vama, trebalo da se renovira u smeštaju u kojem ste bili)" HorizontalAlignment="Left" Margin="41,108,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="DescriptionTextBox" Text="{Binding Path=Description,Mode=OneWayToSource}" HorizontalAlignment="Left" Margin="41,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="930" Height="184"/>
+
+
+
+        <Label Content="Izaberite novo hitnosti renoviranja:" HorizontalAlignment="Left" Margin="41,349,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="(sa leve strane stoje objašnjenja nivoa hitnosti renoviranja, dok sa desne strane stroji padajući meni iz kog možete izabrati novi koji je, po Vama, odgovarajući)" HorizontalAlignment="Left" Margin="41,386,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nivo 1 - bilo bi lepo renovirati neke sitnice, ali sve funkcioniše kako treba i bez toga&#10;Nivo 2 - male zamerke na smeštaj koje kada bi se uklonile bi ga učinile savršenim&#10;Nivo 3 - nekoliko stvari koje su baš zasmetale bi trebalo renovirati&#10;Nivo 4 - ima dosta loših stvari i renoviranje je stvarno neophodno&#10;Nivo 5 - smeštaj je u jako lošem stanju i ne vredi ga uopšte iznajmljivati ukoliko se ne renovira" HorizontalAlignment="Left" Margin="41,422,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="UrgencyLevelComboBox" ItemsSource="{Binding UrgencyLevels}" SelectedItem="{Binding UrgencyLevel}" HorizontalAlignment="Left" Margin="701,422,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+
+        <Button Content="ZAVRŠI" HorizontalAlignment="Center" Margin="0,558,0,0" VerticalAlignment="Top" Height="75" Width="200" Command="{Binding AddRecommendationCommand}" Background="white"/>
+        <Label Content="(klikom na ovo dugme Vaša preporuka biće poslata)" HorizontalAlignment="Left" Margin="364,633,0,0" VerticalAlignment="Top"/>
+
+
+
+        <Button HorizontalAlignment="Left" Margin="898,666,0,0" VerticalAlignment="Top" Command="{Binding CancelCommand}" Height="50" Width="100" Background="White">
+            <Grid>
+                <Image Source="\Resources\Images\Guest1\back.png" Width="30" Height="30" Margin="34,0,-16,0"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" Margin="-19,0,19,0" />
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

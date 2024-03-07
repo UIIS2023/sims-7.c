@@ -1,0 +1,54 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest1Windows.AccommodationOwnerReviewSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest1Windows"
+        mc:Ignorable="d"
+        Title="AccommodationOwnerReviewSelectionWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="LightSkyBlue">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="OCENJIVANJE REZERVACIJA" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="(pred Vama se nalazi lista svih rezervacija koje ste napravili. odaberite onu koju želite da ocenite)" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top"/>
+
+        <DataGrid ItemsSource="{Binding AccommodationReservations, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedAccommodationReservation, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False" x:Name="AccommodationReservationsDataGrid" IsReadOnly="True" SelectionMode="Single" Margin="10,78,10,128" RowHeight="50" Background="white">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID smeštaja" Binding="{Binding Accommodation.Id}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Naziv smeštaja" Binding="{Binding Accommodation.Name}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Početni datum" Binding="{Binding Start}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Krajnji datum" Binding="{Binding End}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button HorizontalAlignment="Center" Margin="0,629,0,0" VerticalAlignment="Top" Height="75" Width="200" Command="{Binding ReviewCommand}" Background="white">
+            <Grid>
+                <TextBlock Text="OCENI REZERVACIJU" Margin="-4,29,4,-28"/>
+                <Image Source="\Resources\Images\Guest1\star.png" Margin="105,15,0,23"/>
+            </Grid>
+        </Button>
+        <Label Content="(nakon što izaberete jednu od Vaših rezervacija, klikom na ovo dugme, idete na formu za ocenjivanje)" HorizontalAlignment="Center" Margin="0,702,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="898,666,0,0" VerticalAlignment="Top" Command="{Binding CancelCommand}" Height="50" Width="100" Background="White">
+            <Grid>
+                <Image Source="\Resources\Images\Guest1\back.png" Width="30" Height="30" Margin="34,0,-16,0"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" Margin="-19,0,19,0" />
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

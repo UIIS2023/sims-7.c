@@ -1,0 +1,64 @@
+﻿<Window x:Class="InitialProject.WPF.Views.GuideWindows.TourStatistics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.GuideWindows"
+        mc:Ignorable="d"
+        Title="TourStatistics" Height="750" Width="430">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="245*"/>
+            <RowDefinition Height="230*"/>
+            <RowDefinition Height="259*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Label Content="Najposećenija tura" HorizontalAlignment="Center" Margin="10,0,10,0" Grid.Row="0" VerticalAlignment="Center" FontSize="17" FontFamily="Candara"/>
+            <TextBox Margin="0,138,0,82"  Width="200" Height="25" HorizontalAlignment="Center" Text="{Binding Path=BestTourEvent.Tour.Name}"/>
+            <Button x:Name="MostVisitedTourInGeneral"  Command="{Binding ViewMostVisitedTourInGeneralCommand}" Content="Prikazi" Width="120" Height="25" HorizontalAlignment="Left" Margin="44,182,0,38"/>
+            <ComboBox x:Name="YearComboBox"  SelectedItem="{Binding Path=SelectedYear}"  HorizontalAlignment="Right" ItemsSource="{Binding Years}" LostFocus="YearComboBox_LostFocus"  Margin="0,182,53,38" Width="120" Height="25"/>
+
+
+        </Grid>
+
+        <Grid Grid.Column="0" Margin="0,245,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <DataGrid ItemsSource="{Binding Path=TourEvents, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedTourEvent, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="10,-214,10,253" AutoGenerateColumns="False"
+                  x:Name="ToursDataGrid" IsReadOnly="True" SelectionMode="Single" SelectionChanged="ToursDataGrid_SelectionChanged" >
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Naziv" Width="100" Binding="{Binding Tour.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Država" Width="100" Binding="{Binding Tour.Location.Country}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Grad" Width="100" Binding="{Binding Tour.Location.City}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Početak" Width="*" Binding="{Binding StartTime, StringFormat='{}{0:dd.MM.yyyy}'}"></DataGridTextColumn>
+                    
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Column="0" Margin="0,-2,0,-1" RenderTransformOrigin="0.5,0.5">
+                <Label Content="Ispod 18:" HorizontalAlignment="Left" Margin="10,24,0,0" Grid.Row="0" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.444,-2.345"/>
+                <TextBox Grid.Row="0" Margin="189,24,0,193"  Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=TourAge.To18, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Izmedju 18 i 50:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.444,-2.345"/>
+                <TextBox Margin="189,59,0,158"  Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=TourAge.From18To50, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Vise od 50:" HorizontalAlignment="Left" Margin="10,95,0,0" Grid.Row="0" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.444,-2.345"/>
+                <TextBox Grid.Row="0" Margin="189,95,0,122"  Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=TourAge.From50, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Procenat sa vaucerom:" HorizontalAlignment="Left" Margin="10,130,0,0" Grid.Row="0" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.444,-2.345"/>
+                <TextBox  Margin="189,131,0,86"  Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=TourPercentageOfGuestsVouchers.PercentageWithVouchers, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Procenat bez vaucera:" HorizontalAlignment="Left" Margin="10,166,0,0" Grid.Row="0" VerticalAlignment="Top" FontSize="17" FontFamily="Candara" RenderTransformOrigin="0.444,-2.345"/>
+                <TextBox  Margin="189,166,0,51"  Width="200" Height="30" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding Path=TourPercentageOfGuestsVouchers.PercentageWithoutVouchers,UpdateSourceTrigger=PropertyChanged}"/>
+                <Button x:Name="ViewButton" Content="Prikazi"  Command="{Binding ViewButtonCommand}" Height="20" Width="100" Margin="165,217,165,10"/>
+
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Window>

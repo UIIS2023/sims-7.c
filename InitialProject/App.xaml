@@ -1,0 +1,444 @@
+<Application x:Class="InitialProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:InitialProject"
+             StartupUri="WPF/Views/SignInForm.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+                <!--New color for background owner-->
+                <SolidColorBrush x:Key="OwnerBackgroudColor1" Color="#282B40" />
+                <SolidColorBrush x:Key="OwnerRectangleFill" Color="#40445F"/>
+
+            <!--Color guest2-->
+            <Color x:Key="PrimaryColor">#DFFDFF</Color>
+            <Color x:Key="SecondaryColor">#283A82</Color>
+            <Color x:Key="TextColor">#FFFFF0</Color>
+
+
+            <!--New color for background guide-->
+            <SolidColorBrush x:Key="GuideBackgroudColor1" Color="#75627B" />
+            <!--Label style-->
+            <Style TargetType="Label" x:Key="DefaultLabel">
+                <Setter Property="TextElement.FontFamily" Value="Candara Light"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextBlock.Foreground" Value="LightGray"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="DefaultLabelDark">
+                <Setter Property="TextElement.FontFamily" Value="Candara Light"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextBlock.Foreground" Value="#191e29"/>
+            </Style>
+            <Style TargetType="Label" x:Key="DefaultLabelS" BasedOn="{StaticResource DefaultLabel}">
+                <Setter Property="FontSize" Value="16"/>
+
+            </Style>
+
+            <Style TargetType="Label" x:Key="BoldLabel">
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="TextBlock.Foreground" Value="LightGray"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="BoldLabelDark">
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="TextBlock.Foreground" Value="#191e29"/>
+            </Style>
+
+            <!--Tabbed Panel-->
+            <Style x:Key="DarkTabbedPanel" TargetType="TabControl">
+                <Setter Property="BorderBrush" Value="#191e29"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+
+            <Style x:Key="DarkTabbedItem" TargetType="TabItem">
+                <Setter Property="FontFamily" Value="Candara"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="White"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TabItem}">
+                            <Grid>
+                                <Border Name="Border" Margin="0,0,0,0" Background="{StaticResource OwnerBackgroudColor1}"
+                                   BorderBrush="Pink" BorderThickness="1,1,1,1" CornerRadius="5,5,5,5">
+                                    <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              ContentSource="Header" Margin="20,5,20,5"
+                              RecognizesAccessKey="True">
+                                        <ContentPresenter.LayoutTransform>
+                                            <RotateTransform Angle="0" />
+                                        </ContentPresenter.LayoutTransform>
+                                    </ContentPresenter>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Panel.ZIndex" Value="100" />
+                                    <Setter TargetName="Border" Property="Background" Value="Pink" />
+                                    <Setter TargetName="Border" Property="BorderBrush" Value="Transparent"/>
+                                    <Setter Property="Foreground" Value="{StaticResource OwnerBackgroudColor1}"/>
+                                    <Setter Property="FontWeight" Value="DemiBold"/>
+                                    <Setter Property="FontFamily" Value="Candara"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+                <Style x:Key="RoundButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#ffb3c6"/>
+                <Setter Property="Foreground" Value="#E80575"/>
+                
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="#FF2791"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="RoundTextBoxStyle" TargetType="{x:Type TextBox}">
+                <Setter Property="Template">
+                    
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Grid>
+                                <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="12">
+                                    <ScrollViewer x:Name="PART_ContentHost" 
+                                      Margin="0" 
+                                      HorizontalScrollBarVisibility="Hidden" 
+                                      VerticalScrollBarVisibility="Hidden"/>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--Data grid for owner-->
+            <Style TargetType="DataGrid" x:Key="DarkDataGrid">
+                <Setter Property="FontFamily" Value="Candara"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Setter Property="CanUserResizeRows" Value="False"/>
+                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+
+                <Setter Property="BorderBrush" Value="#191e29"/>
+                <Setter Property="BorderThickness" Value="2"/>
+
+
+                <Setter Property="AlternationCount" Value="1"/>
+
+                <Setter Property="Background" Value="#3c4253"/>
+                <Setter Property="SelectionUnit" Value="FullRow"/>
+
+            </Style>
+
+            <Style TargetType="DataGridColumnHeader" x:Key="DarkDataGridHeader">
+                <Setter Property="Background" Value="#404a5d"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+            </Style>
+
+            <Style x:Key="DarkDataGridRow" TargetType="{x:Type DataGridRow}">
+                <Setter Property="Foreground" Value="#FFB3B3B3"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="#2a3042"/>
+                    </Trigger>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                        <Setter Property="Background" Value="#31384c"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+
+
+            <Style x:Key="DarkDataGridCellOwner" TargetType="{x:Type DataGridCell}">
+                <Setter Property="Padding" Value="5,0,0,0"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#5E4B64"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#4e6082"/>
+                    </Trigger>
+
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsSelected" Value="true"/>
+                            <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="#4e6082"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#4e6082"/>
+                    </MultiTrigger>
+                </Style.Triggers>
+
+            </Style>
+
+
+
+            <!--Data grid for guide-->
+            <Style TargetType="DataGrid" x:Key="DataGridStyle">
+                <Setter Property="FontFamily" Value="Candara"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Setter Property="CanUserResizeRows" Value="False"/>
+                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+
+                <Setter Property="BorderBrush" Value="#FB6F92"/>
+                <Setter Property="BorderThickness" Value="2"/>
+
+                <!--Podesiti za izmenu boja-->
+                <Setter Property="AlternationCount" Value="1"/>
+
+                <Setter Property="Background" Value="LightPink"/>
+                <Setter Property="SelectionUnit" Value="FullRow"/>
+
+            </Style>
+
+            <Style TargetType="DataGridColumnHeader" x:Key="DataGridHeader">
+                <Setter Property="Background" Value="#FB6F92"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+            </Style>
+
+            <Style x:Key="DataGridRow" TargetType="{x:Type DataGridRow}">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="#E18AAA"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#9c225d"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="DataGridCell" TargetType="{x:Type DataGridCell}">
+                <Setter Property="Padding" Value="5,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#865595"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#865595"/>
+                    </Trigger>
+
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsSelected" Value="true"/>
+                            <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="#865595"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#865595"/>
+                    </MultiTrigger>
+                </Style.Triggers>
+
+            </Style>
+
+            <Style x:Key="DarkTextBlock" TargetType="TextBlock">
+
+                <Setter Property="Foreground" Value="LightGray"/>
+                <Setter Property="FontFamily" Value="Candara"/>
+                <Setter Property="FontSize" Value="14"/>
+
+            </Style>
+
+            <!--Accommodation pink button-->
+            <Style TargetType="Button" x:Key="AccommodationPinkButton">
+                <Setter Property="Background" Value="Pink"/>
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="TextBlock.Foreground" Value="{StaticResource OwnerBackgroudColor1}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="HotPink"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--Dark button-->
+            <Style TargetType="Button" x:Key="DarkButton">
+                <Setter Property="Background" Value="#404a5d"/>
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="TextBlock.Foreground" Value="White"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#2a3042"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--Light button-->
+            <Style TargetType="Button" x:Key="LightButton">
+                <Setter Property="Background" Value="LightGray"/>
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="TextBlock.Foreground" Value="Black"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--Submit button-->
+            <Style TargetType="Button" x:Key="SubmitButton">
+                <Setter Property="Background" Value="#6BB9FF"/>
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="TextBlock.Foreground" Value="Black"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Blue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            
+            <!--Cancel button-->
+            <Style TargetType="Button" x:Key="CancelButton">
+                <Setter Property="Background" Value="#FF736B"/>
+                <Setter Property="TextElement.FontFamily" Value="Candara"/>
+                <Setter Property="TextBlock.Foreground" Value="Black"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Red"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

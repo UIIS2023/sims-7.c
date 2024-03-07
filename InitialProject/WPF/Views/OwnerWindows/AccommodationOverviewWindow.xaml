@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="InitialProject.WPF.Views.OwnerWindows.AccommodationOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.OwnerWindows"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl1_Loaded">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding RegisterNewAccommodationCommand}" Key="K" Modifiers="Ctrl"/>
+        <KeyBinding Command="{Binding ReviewsCommand}" Key="L" Modifiers="Ctrl" />
+        <KeyBinding Command="{Binding AccommodationRenovationCommand}" Key="R" Modifiers="Ctrl" />
+        <KeyBinding Command="{Binding ShowAccommodationRenovationCommand}" Key="Y" Modifiers="Ctrl"/>
+        <KeyBinding Command="{Binding ShowStatisticByYearCommand}" Key="T" Modifiers="Ctrl"/>
+    </UserControl.InputBindings>
+    <UserControl.Resources>
+
+        <Style TargetType="DataGrid" BasedOn="{StaticResource DarkDataGrid}">
+            <Setter Property="CellStyle" Value="{StaticResource DarkDataGridCellOwner}"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource DarkDataGridHeader}"/>
+            <Setter Property="RowStyle" Value="{StaticResource DarkDataGridRow}"/>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="10,0,0,0">
+
+            <Image Source="/Resources/Images/home.png" Width="20" Margin="0,0,5,0" />
+            <Label Content=" / " Style="{StaticResource BoldLabel}" FontSize="20"/>
+            <Label Content="Smeštaji" Style="{StaticResource BoldLabel}" FontSize="20" Margin="5,0,0,0"/>
+
+        </StackPanel>
+
+        <Button x:Name="RegistenNewAccommodationButton"  FontSize="13" Width="145"
+                Grid.Row="2" Command="{Binding RegisterNewAccommodationCommand}"  Margin="649,10,0,46" Style="{StaticResource AccommodationPinkButton}" >
+            <StackPanel>
+                <TextBlock Text="Registruj novi smeštaj" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + K" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Button>
+        <Button x:Name="AccommodationReviewsButton" Grid.Row="2" FontSize="13" Width="145" Command="{Binding ReviewsCommand}"  Margin="481,10,140,46" Style="{StaticResource AccommodationPinkButton}">
+            <StackPanel >
+                <TextBlock  Text="Recenzije" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + L" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Button>
+        <Button x:Name="ScheduleAccommodationRenovationButton" Grid.Row="2" FontSize="13" Width="145" Command="{Binding AccommodationRenovationCommand}"  Margin="308,10,280,46" Style="{StaticResource AccommodationPinkButton}">
+            <StackPanel >
+                <TextBlock  Text="Zakaži renoviranje" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + R" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="AccommodationRenovationButton" Grid.Row="2" FontSize="13" Width="151" Command="{Binding ShowAccommodationRenovationCommand}"  Margin="130,10,420,46" Style="{StaticResource AccommodationPinkButton}">
+            <StackPanel >
+                <TextBlock  Text="Renoviranja" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + Y" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Button>
+
+        <Button x:Name="AccommodationStatisticButton" Grid.Row="2" FontSize="13" Width="145" Command="{Binding ShowStatisticByYearCommand}"  Margin="10,10,620,46" Style="{StaticResource AccommodationPinkButton}">
+            <StackPanel >
+                <TextBlock  Text="Statistika" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + T" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Button>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Path=Accommodations, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedAccommodation, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="0,0,0,0" AutoGenerateColumns="False"
+                  x:Name="AccommodationsDataGrid" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Država" Binding="{Binding Location.Country}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Grad" Binding="{Binding Location.City}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tip" Binding="{Binding Type}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Max broj gostiju" Binding="{Binding MaxGuests}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Min dana za rezervaciju" Binding="{Binding MinDaysForReservation}" Width="135" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Otkazni rok" Binding="{Binding CancelationPeriod}" Width="*" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,256 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest1Windows.AccommodationsOverview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views"
+        xmlns:val="clr-namespace:InitialProject.WPF.Views.Guest1Windows"
+        mc:Ignorable="d"
+        Title="AccommodationsOverview" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="LightSkyBlue">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+        <Grid Margin="0,0,-142,-16" Height="1062">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+
+
+            <Label Content="PRIKAZ I PRETRAGA SMEŠTAJA" HorizontalAlignment="Left" Margin="370,-1,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+
+
+            <Label HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Content="Pretraga po nazivu:"/>
+            <TextBox HorizontalAlignment="Left" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Height="25" Name="AccommodationSearchByNameTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TextValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label HorizontalAlignment="Left" Margin="336,57,0,0" VerticalAlignment="Top" Content="Pretraga po državi:"/>
+            <TextBox HorizontalAlignment="Left" Margin="336,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="25" Name="AccommodationSearchByCountryTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TextValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label HorizontalAlignment="Left" Margin="677,56,0,0" VerticalAlignment="Top" Content="Pretraga po gradu:"/>
+            <TextBox HorizontalAlignment="Left" Margin="677,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="25" Name="AccommodationSearchByCityTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TextValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Content="Pretraga po tipu smeštaja:" />
+            <TextBox HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Height="24" Name="AccommodationSearchByTypeTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TextValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label HorizontalAlignment="Left" Margin="336,131,0,0" VerticalAlignment="Top" Content="Pretraga po broju gostiju:"/>
+            <TextBox HorizontalAlignment="Left" Margin="336,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="24" Name="AccommodationSearchByNumberOfGuestsTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:NumberValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label HorizontalAlignment="Left" Margin="677,131,0,0" VerticalAlignment="Top" Content="Pretraga po broju dana za rezervaciju:"/>
+            <TextBox HorizontalAlignment="Left" Margin="677,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="24" Name="AccommodationSearchByNumerOfDaysForReservationTextBox">
+                <TextBox.Text>
+                    <Binding Path="Test3" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:NumberValidation ValidationStep="RawProposedValue"/>
+                            <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="10" Max="350"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Margin="10,25,0,0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <Label Content="(u tekstualna polja unesite parametre po kojima želite da pretražite smeštaje (možete po jednom ili više parametara), zatim kliknite dugme  &quot;Pretraži&quot;, i filtrirani smeštaji će biti prikazani&#xD;&#xA; u tabeli ispod)" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top"/>
+
+            <Button Margin="400,206,549,615" RenderTransformOrigin="1.17,0.661" Click="SearchButton_Click" Background="white" Height="50" Width="200">
+                <Grid>
+                    <TextBlock Text="PRETRAŽI" Margin="-10,14,10,-14"/>
+                    <Image Source="\Resources\Images\Guest1\search.jpg" Width="40" Height="40" Margin="44,0,-22,0"/>
+                </Grid>
+            </Button>
+
+
+
+            <DataGrid ItemsSource="{Binding Accommodations, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedAccommodation, UpdateSourceTrigger=PropertyChanged}"
+                      Margin="10,281,169,42" AutoGenerateColumns="False" x:Name="AccommodationsDataGrid" IsReadOnly="True" SelectionMode="Single" RowHeight="50" Background="white">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Država" Binding="{Binding Location.Country}" Width="104"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Grad" Binding="{Binding Location.City}" Width="104"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Tip" Binding="{Binding Type}" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Max broj gostiju" Binding="{Binding MaxGuests}" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Min dana za rezervaciju" Binding="{Binding MinDaysForReservation}" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Dana za otkazivanje" Binding="{Binding CancelationPeriod}" Width="190"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+            <Button HorizontalAlignment="Left" Margin="409,876,0,0" VerticalAlignment="Top" Height="75" Width="200" Click="ReserveButton_Click" Background="white" Grid.RowSpan="2">
+                <Grid>
+                    <TextBlock Text="REZERVIŠI" Margin="28,30,-28,-29"/>
+                    <Image Source="\Resources\Images\Guest1\book.png" Margin="93,22,22,21"/>
+                </Grid>
+            </Button>
+            <Label Content="(klikom na ovo dugme dobićete formu za rezervisanje izabranog smeštaja)" HorizontalAlignment="Left" Margin="310,60,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+
+
+
+            <Button HorizontalAlignment="Left" Margin="880,75,0,0" VerticalAlignment="Top" Click="CancelButton_Click" Grid.Row="1" Width="100" Height="50" Background="white">
+                <Grid>
+                    <Image Source="\Resources\Images\Guest1\back.png" Width="30" Height="30" Margin="34,0,-16,0"/>
+                    <TextBlock Text="Nazad" VerticalAlignment="Center" Margin="-10,0,19,0" />
+                </Grid>
+            </Button>
+        </Grid>
+    </ScrollViewer>
+</Window>

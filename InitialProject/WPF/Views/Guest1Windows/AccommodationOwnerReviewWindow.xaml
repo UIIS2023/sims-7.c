@@ -1,0 +1,82 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest1Windows.AccommodationOwnerReviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest1Windows"
+        mc:Ignorable="d"
+        Title="AccommodationOwnerReviewWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="LightSkyBlue">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="OCENJIVANJE SMEŠTAJA I VLASNIKA" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="(kod ocenjivanja izaberite ocenu od 1 do 5 za ponuđene kategorije, a kod ostavljanja komentara upišite slobodan komentar u polje za unos teksta)" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top"/>
+
+
+
+        <Label Content="Ocenite čistoću smeštaja:" HorizontalAlignment="Left" Margin="6,92,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="CleanlinessComboBox" ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedCleanliness}" HorizontalAlignment="Left" Margin="14,134,0,0" VerticalAlignment="Top" Width="120" />
+
+        <Label Content="Ocenite korektnost vlasnika:" HorizontalAlignment="Left" Margin="263,92,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="CorrectnessComboBox" ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedCorrectness}" HorizontalAlignment="Left" Margin="271,134,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+
+        <Label Content="Ostavite slobodan komentar:" HorizontalAlignment="Left" Margin="542,92,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.425,0.791"/>
+        <TextBox x:Name="CommentTextBox" Text="{Binding Path=Comment, Mode=OneWayToSource,UpdateSourceTrigger=LostFocus}" Margin="542,129,23,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="278"/>
+
+
+
+        <Label Content="Možete ostaviti i sliku/e:" HorizontalAlignment="Left" Margin="122,449,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button HorizontalAlignment="Left" Margin="165,494,0,0" VerticalAlignment="Top" Width="150" Command="{Binding ImagesButtonCommand}" Height="50" Background="white">
+            <Grid>
+                <TextBlock Text="Ostavi slike" Margin="-5,16,5,-16"/>
+                <Image Source="\Resources\Images\Guest1\photo.png" Margin="57,10,-13,10"/>
+            </Grid>
+        </Button>
+
+        <Label Content="Ostavite i preporuku za renoviranje:" HorizontalAlignment="Left" Margin="629,449,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button HorizontalAlignment="Left" Margin="723,491,0,0" VerticalAlignment="Top" Command="{Binding RecommendationButtonCommand}" Width="150" Height="50" Background="white">
+            <Grid>
+                <TextBlock Text="Ostavi preporuku" Margin="-12,17,12,-17"/>
+                <Image Source="\Resources\Images\Guest1\renovation.png" Margin="67,10,-23,10"/>
+            </Grid>
+        </Button>
+
+
+
+        <Button HorizontalAlignment="Center" Margin="0,589,0,0" VerticalAlignment="Top" Height="75" Width="200" Command="{Binding ReviewButtonCommand}" Background="white">
+            <Grid>
+                <TextBlock Text="OCENI" Margin="17,30,-17,-29"/>
+                <Image Source="\Resources\Images\Guest1\star.png" Margin="57,22,10,23"/>
+            </Grid>
+        </Button>
+        <Label Content="(klikom na ovo dugme Vaša recenzija biće memorisana)" HorizontalAlignment="Center" Margin="0,658,0,0" VerticalAlignment="Top"/>
+
+
+
+        <Button HorizontalAlignment="Left" Margin="898,666,0,0" VerticalAlignment="Top" Command="{Binding CancelButtonCommand}" Height="50" Width="100" Background="White">
+            <Grid>
+                <Image Source="\Resources\Images\Guest1\back.png" Width="30" Height="30" Margin="34,0,-16,0"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" Margin="-19,0,19,0" />
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

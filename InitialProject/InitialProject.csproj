@@ -1,0 +1,640 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Locations\**" />
+    <EmbeddedResource Remove="Resources\Locations\**" />
+    <None Remove="Resources\Locations\**" />
+    <Page Remove="Resources\Locations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Remove="C:\Users\Codin\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\1.jpg" />
+    <None Remove="Resources\Images\10.jpg" />
+    <None Remove="Resources\Images\12.jpg" />
+    <None Remove="Resources\Images\13.jpg" />
+    <None Remove="Resources\Images\14.jpg" />
+    <None Remove="Resources\Images\15.jpg" />
+    <None Remove="Resources\Images\7437.jpg" />
+    <None Remove="Resources\Images\77150.jpg" />
+    <None Remove="Resources\Images\add-128.png" />
+    <None Remove="Resources\Images\adventure.png" />
+    <None Remove="Resources\Images\arrow-demo.png" />
+    <None Remove="Resources\Images\angle-small-left.png" />
+    <None Remove="Resources\Images\bar-chart.png" />
+    <None Remove="Resources\Images\camping.png" />
+    <None Remove="Resources\Images\car.png" />
+    <None Remove="Resources\Images\check.png" />
+    <None Remove="Resources\Images\city.png" />
+    <None Remove="Resources\Images\comment.png" />
+    <None Remove="Resources\Images\dateAndTime.png" />
+    <None Remove="Resources\Images\complex.png" />
+    <None Remove="Resources\Images\destination.png" />
+    <None Remove="Resources\Images\diversity.png" />
+    <None Remove="Resources\Images\down-arrow.png" />
+    <None Remove="Resources\Images\duration.png" />
+    <None Remove="Resources\Images\earth.png" />
+    <None Remove="Resources\Images\education.png" />
+    <None Remove="Resources\Images\favorite.png" />
+    <None Remove="Resources\Images\filter.png" />
+    <None Remove="Resources\Images\filter2.png" />
+    <None Remove="Resources\Images\glacierNationalPark.jpg" />
+    <None Remove="Resources\Images\graph.png" />
+    <None Remove="Resources\Images\group.png" />
+    <None Remove="Resources\Images\Guest1\arrow.png" />
+    <None Remove="Resources\Images\Guest1\back.png" />
+    <None Remove="Resources\Images\Guest1\book.png" />
+    <None Remove="Resources\Images\Guest1\forum.png" />
+    <None Remove="Resources\Images\Guest1\kylesmyle.jpg" />
+    <None Remove="Resources\Images\Guest1\list.jpg" />
+    <None Remove="Resources\Images\Guest1\logout.png" />
+    <None Remove="Resources\Images\Guest1\pause.png" />
+    <None Remove="Resources\Images\Guest1\photo.png" />
+    <None Remove="Resources\Images\Guest1\play.png" />
+    <None Remove="Resources\Images\Guest1\print.png" />
+    <None Remove="Resources\Images\Guest1\profile.png" />
+    <None Remove="Resources\Images\Guest1\renovation.png" />
+    <None Remove="Resources\Images\Guest1\search.jpg" />
+    <None Remove="Resources\Images\Guest1\star.png" />
+    <None Remove="Resources\Images\Guest1\stop.png" />
+    <None Remove="Resources\Images\Guest1\tutorial.png" />
+    <None Remove="Resources\Images\Guest1\x.png" />
+    <None Remove="Resources\Images\Guest2\adventure.png" />
+    <None Remove="Resources\Images\Guest2\application.png" />
+    <None Remove="Resources\Images\Guest2\check.png" />
+    <None Remove="Resources\Images\Guest2\comment.png" />
+    <None Remove="Resources\Images\Guest2\dateAndTime.png" />
+    <None Remove="Resources\Images\Guest2\delete.png" />
+    <None Remove="Resources\Images\Guest2\destination.png" />
+    <None Remove="Resources\Images\Guest2\diversity.png" />
+    <None Remove="Resources\Images\Guest2\duration.png" />
+    <None Remove="Resources\Images\Guest2\earth.png" />
+    <None Remove="Resources\Images\Guest2\education.png" />
+    <None Remove="Resources\Images\Guest2\graph.png" />
+    <None Remove="Resources\Images\Guest2\group.png" />
+    <None Remove="Resources\Images\Guest2\hiking.png" />
+    <None Remove="Resources\Images\Guest2\info.png" />
+    <None Remove="Resources\Images\Guest2\location-pin.png" />
+    <None Remove="Resources\Images\Guest2\location.png" />
+    <None Remove="Resources\Images\Guest2\logout.png" />
+    <None Remove="Resources\Images\Guest2\man.png" />
+    <None Remove="Resources\Images\Guest2\map.png" />
+    <None Remove="Resources\Images\Guest2\moon.png" />
+    <None Remove="Resources\Images\Guest2\passport.png" />
+    <None Remove="Resources\Images\Guest2\pdf.png" />
+    <None Remove="Resources\Images\Guest2\pencil.png" />
+    <None Remove="Resources\Images\Guest2\percent.png" />
+    <None Remove="Resources\Images\Guest2\percentage.png" />
+    <None Remove="Resources\Images\Guest2\percentage2.png" />
+    <None Remove="Resources\Images\Guest2\photo.png" />
+    <None Remove="Resources\Images\Guest2\picture.png" />
+    <None Remove="Resources\Images\Guest2\point.png" />
+    <None Remove="Resources\Images\Guest2\question-mark.png" />
+    <None Remove="Resources\Images\Guest2\questionnaire.png" />
+    <None Remove="Resources\Images\Guest2\schedule.png" />
+    <None Remove="Resources\Images\Guest2\search.png" />
+    <None Remove="Resources\Images\Guest2\skyscraper.png" />
+    <None Remove="Resources\Images\Guest2\star.png" />
+    <None Remove="Resources\Images\Guest2\sun.png" />
+    <None Remove="Resources\Images\Guest2\tour-points.png" />
+    <None Remove="Resources\Images\Guest2\tour.png" />
+    <None Remove="Resources\Images\Guest2\translation.png" />
+    <None Remove="Resources\Images\Guest2\transparency.png" />
+    <None Remove="Resources\Images\Guest2\travel-itinerary.png" />
+    <None Remove="Resources\Images\Guest2\trip.png" />
+    <None Remove="Resources\Images\Guest2\user.png" />
+    <None Remove="Resources\Images\Guest2\world-globe.png" />
+    <None Remove="Resources\Images\hiking.png" />
+    <None Remove="Resources\Images\home.png" />
+    <None Remove="Resources\Images\info-2-48.png" />
+    <None Remove="Resources\Images\info.png" />
+    <None Remove="Resources\Images\home2.png" />
+    <None Remove="Resources\Images\language.png" />
+    <None Remove="Resources\Images\languages.png" />
+    <None Remove="Resources\Images\location-pin.png" />
+    <None Remove="Resources\Images\logout-32.png" />
+    <None Remove="Resources\Images\logout.png" />
+    <None Remove="Resources\Images\map.png" />
+    <None Remove="Resources\Images\menu-burger.png" />
+    <None Remove="Resources\Images\menu111.png" />
+    <None Remove="Resources\Images\osakaKyoto.png" />
+    <None Remove="Resources\Images\passport.png" />
+    <None Remove="Resources\Images\people.png" />
+    <None Remove="Resources\Images\photo.png" />
+    <None Remove="Resources\Images\picture.png" />
+    <None Remove="Resources\Images\picture1.jpg" />
+    <None Remove="Resources\Images\point.png" />
+    <None Remove="Resources\Images\profile-owner.png" />
+    <None Remove="Resources\Images\question-mark.png" />
+    <None Remove="Resources\Images\plus.png" />
+    <None Remove="Resources\Images\questionnaire.png" />
+    <None Remove="Resources\Images\search.png" />
+    <None Remove="Resources\Images\sign.png" />
+    <None Remove="Resources\Images\skyscraper.png" />
+    <None Remove="Resources\Images\star-owner.png" />
+    <None Remove="Resources\Images\star.png" />
+    <None Remove="Resources\Images\stars.png" />
+    <None Remove="Resources\Images\statistics.png" />
+    <None Remove="Resources\Images\svet.png" />
+    <None Remove="Resources\Images\tour-point.png" />
+    <None Remove="Resources\Images\tour.png" />
+    <None Remove="Resources\Images\tour-bus.png" />
+    <None Remove="Resources\Images\tourist.png" />
+    <None Remove="Resources\Images\translation.png" />
+    <None Remove="Resources\Images\transparency.png" />
+    <None Remove="Resources\Images\travel-itinerary.png" />
+    <None Remove="Resources\Images\travel-map.png" />
+    <None Remove="Resources\Images\travel-map2.png" />
+    <None Remove="Resources\Images\travel.png" />
+    <None Remove="Resources\Images\travell.png" />
+    <None Remove="Resources\Images\user.png" />
+    <None Remove="Resources\Images\white-down-arrow-png.png" />
+    <None Remove="Resources\Images\woman.png" />
+    <None Remove="Resources\Images\women.png" />
+    <None Remove="Resources\Images\world-globe.png" />
+    <None Remove="Resources\Images\worldTour.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\add-128.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\arrow-demo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\down-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\arrow.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\back.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\book.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\forum.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\kylesmyle.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\list.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\logout.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\pause.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\photo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\play.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\print.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\profile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\renovation.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\search.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\star.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\stop.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\tutorial.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest1\x.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest2\moon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest2\percentage2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Guest2\sun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\info-2-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logout-32.png" />
+    <Resource Include="Resources\Images\angle-small-left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\bar-chart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\complex.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\favorite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\filter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\filter2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\home2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\menu-burger.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\sign.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\stars.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\statistics.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\tour-bus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\profile-owner.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\star-owner.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\education.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\world-globe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\trip.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\travel-itinerary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\transparency.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\translation.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\tour-point.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\travell.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\women.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\tour.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\skyscraper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\schedule.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\questionnaire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\question-mark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\point.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\white-down-arrow-png.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\woman.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\picture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\photo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\pencil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\passport.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\man.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\logout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\location-pin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\location.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\hiking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\group.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\graph.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\earth.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\duration.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\destination.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\dateAndTime.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\comment.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\application.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\adventure.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Guest2\diversity.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.sr-LATN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\strings.en-US.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\strings.sr-LATN-CS.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Images\Guest2\percentage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Images\Guest2\tour-points.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Images\map.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Localization\" />
+    <Folder Include="Resources\Videos\" />
+    <Folder Include="WPF\ViewModels\GuideViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="PdfSharp" Version="1.50.5147" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="21.2.4" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>

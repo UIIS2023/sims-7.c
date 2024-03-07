@@ -1,0 +1,25 @@
+﻿<Window x:Class="InitialProject.WPF.Views.OwnerWindows.AccommodationRenovationDescriptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.OwnerWindows"
+        mc:Ignorable="d"
+        Title="Opis renoviranja" Height="300" Width="350" WindowStartupLocation="CenterScreen">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding FinishShedulingCommand}" Key="S" Modifiers="Ctrl"/>
+    </Window.InputBindings>
+    <Grid Background="#5E4B64">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="DescriptionTextBox" Grid.Row="0" Height="100" Width="280" Text="{Binding Path=Description}" Background="{StaticResource OwnerRectangleFill}" Foreground="White"/>
+        <Button x:Name="AddDescriptionButton"  Command="{Binding FinishShedulingCommand}" Style="{StaticResource AccommodationPinkButton}" Margin="112,204,112,22" Height="58" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="104">
+                <TextBlock Text="Završi" HorizontalAlignment="Center"/>
+                <TextBlock Text="CTRL + S" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

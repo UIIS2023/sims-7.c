@@ -1,0 +1,21 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest2Windows.PartsOfRequestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest2Windows"
+        mc:Ignorable="d"
+        Title="Chigra" Height="550" Width="700">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label FontSize="20" HorizontalAlignment="Center" Margin="0,20,0,0">Parts of TourRequests</Label>
+            <TextBlock></TextBlock>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Path=PartsOfRequest, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedPart, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False" IsReadOnly="True" x:Name="myRequestsOverview" Height="105" Width="700">
+            
+        </DataGrid>
+       
+    </Grid>
+</Window>

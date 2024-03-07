@@ -1,0 +1,97 @@
+﻿<Window x:Class="InitialProject.WPF.Views.OwnerWindows.ScheduleAccommodationRenovationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.OwnerWindows"
+        mc:Ignorable="d"
+        Title="Zakaži renoviranje" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding ScheduleRenovationCommand}" Key="S" Modifiers="Ctrl"/>
+        <KeyBinding Command="{Binding CancelCommand}" Key="Esc"/>
+    </Window.InputBindings>
+    <Window.Resources>
+        <Style TargetType="DataGrid" BasedOn="{StaticResource DarkDataGrid}">
+            <Setter Property="CellStyle" Value="{StaticResource DarkDataGridCellOwner}"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource DarkDataGridHeader}"/>
+            <Setter Property="RowStyle" Value="{StaticResource DarkDataGridRow}"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="{StaticResource OwnerRectangleFill}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="6" Margin="0,34,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="756">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"  Grid.Column="0" >
+                <Label Content="Od" Height="27" Width="50" VerticalAlignment="Center" Style="{StaticResource DefaultLabel}" FontSize="14"/>
+                <DatePicker SelectedDate="{Binding Path=SelectedStartDate}"  Name="StartDatePicker"  FontFamily="Candara" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                <Label Content="Do" Height="27" Width="50" VerticalAlignment="Center" Style="{StaticResource DefaultLabel}" FontSize="14"/>
+                <DatePicker SelectedDate="{Binding Path=SelectedEndDate}"  Name="EndDatePicker"  FontFamily="Candara" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" >
+                <Label Content="Trajanje" Height="27" Width="57" VerticalAlignment="Center" Style="{StaticResource DefaultLabel}" FontSize="14"/>
+                <TextBox x:Name="DurationTextBox" Height="27" Width="130" Text="{Binding Duration, UpdateSourceTrigger=LostFocus}"/>
+            </StackPanel>
+
+            <Button x:Name="Search" Grid.Column="3" Command="{Binding SearchCommand}"  Height="37" Width="130" Style="{StaticResource AccommodationPinkButton}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Images/Guest2/search.png" Width="20" Height="15" Margin="0,0,5,0" />
+                    <ContentControl Content="Pretraži" Height="15" FontFamily="Candara"></ContentControl>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Slobodni termini" Style="{StaticResource BoldLabel}" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        </Grid>
+        <DataGrid x:Name="AvailableTermsDataGrid" Grid.Row="2" ItemsSource="{Binding Path=AvailableTerms, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedTerm, UpdateSourceTrigger=PropertyChanged}" Width="300">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Od" Width="*" Binding="{Binding Start}" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Do" Width="*" Binding="{Binding End}" DataGridColumn.CanUserResize="False"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="ScheduleRenovationButton" Style="{StaticResource SubmitButton}" Command="{Binding ScheduleRenovationCommand}" Width="100" Height="70" Margin="0, 0, 10, 0">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Zakaži" HorizontalAlignment="Center"/>
+                        <Label Content="CTRL + S" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="CancelButton" Style="{StaticResource CancelButton}" Command="{Binding CancelCommand}" Width="100" Height="70" >
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Nazad" HorizontalAlignment="Center"/>
+                        <Label Content="ESC" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>

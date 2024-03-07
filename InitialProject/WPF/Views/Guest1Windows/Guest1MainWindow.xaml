@@ -1,0 +1,101 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest1Windows.Guest1MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest1Windows"
+        mc:Ignorable="d"
+        Title="Guest1MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="LightSkyBlue">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Franklin Gothic" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="POČETNA STRANICA" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="(ovo je glavni meni. klikom na određeno dugme, biće prikazan prozor izabrane radnje)" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top"/>
+
+
+
+        <Button HorizontalAlignment="Left" Margin="932,10,0,0" VerticalAlignment="Top" Height="68" Width="68" Background="white" Click="Profile_Click">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\profile.png" Width="45" Height="45"/>
+                <TextBlock Text="Vaš profil" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+
+
+        <Button HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="132" Width="502" Click="AccommodationsOverview_Click" Background="white">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\search.jpg" Width="65" Height="65"/>
+                <TextBlock Text="PRIKAZ, PRETRAGA I REZERVACIJA SMEŠTAJA" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="512,95,0,0" VerticalAlignment="Top" Height="132" Width="488" Click="AccommodationOwnerReviewSelection_Click" Background="white">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\star.png" Width="65" Height="65"/>
+                <TextBlock Text="OCENJIVANJE SMEŠTAJA I VLASNIKA" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="502" Height="132" Click="GuestReviewsOverview_Click" Background="white">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\list.jpg" Width="65" Height="65"/>
+                <TextBlock Text="PRIKAZ RECENZIJA" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="512,227,0,0" VerticalAlignment="Top" Width="488" Height="132" Click="AccommodationReservationReschedulingRequest_Click" Background="white">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\arrow.png" Width="65" Height="65"/>
+                <TextBlock Text="POMERANJE REZERVACIJE" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Width="502" Height="132" Click="AccommodationReservationCancellation_Click" Background="white">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\x.png" Width="65" Height="65"/>
+                <TextBlock Text="OTKAZIVANJE REZERVACIJE" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="512,359,0,0" VerticalAlignment="Top" Width="488" Height="132" Background="white" Click="WhereverWhenever_Click">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\kylesmyle.jpg" Width="65" Height="65"/>
+                <TextBlock Text="'BILO GDE, BILO KADA'" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" Width="502" Height="132" Background="white" Click="ForumsOverview_Click">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\forum.png" Width="65" Height="65"/>
+                <TextBlock Text="   FORUMI" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="512,491,0,0" VerticalAlignment="Top" Width="488" Height="132" Background="white" Click="Tutorial_Click">
+            <StackPanel>
+                <Image Source="\Resources\Images\Guest1\tutorial.png" Width="65" Height="65"/>
+                <TextBlock Text="TUTORIJAL KAKO KORISTITI APLIKACIJU" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+
+
+        <Button HorizontalAlignment="Left" Margin="901,652,0,0" VerticalAlignment="Top" Click="SignOut_Click" Background="white" Height="50" Width="99">
+            <Grid>
+                <Image Source="\Resources\Images\Guest1\logout.png" Width="30" Height="30" Margin="34,0,-16,0"/>
+                <TextBlock Text="Odjavi se" VerticalAlignment="Center" Margin="-19,0,19,0" />
+            </Grid>
+        </Button>
+        <Label Content="(klikom na ovo dugme bićete odjavljeni sa sistema)" HorizontalAlignment="Left" Margin="726,702,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
